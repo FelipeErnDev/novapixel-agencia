@@ -13,40 +13,36 @@ npm run dev
 
 ```bash
 npm run build
+npm start
 ```
 
-Os arquivos estáticos ficam em `dist/`.
+Os arquivos estáticos ficam em `dist/` e o `server.js` serve o site na porta `3000` (ou `PORT`).
 
 ## Deploy na Hostinger (Node.js Web App)
 
-O projeto é compatível com a hospedagem Node.js da Hostinger (planos Business ou Cloud).
+Repositório: `FelipeErnDev/novapixel-agencia`
 
-### 1. Conectar o GitHub
-
-No hPanel: **Websites → Add Website → Node.js Apps → Import Git Repository**
-
-Repositório: `FelipeErnDev/novapixel-agencia`  
-Branch: `main`
-
-### 2. Configurações de build
+### Configurações no hPanel
 
 | Campo | Valor |
 | --- | --- |
-| Framework | **Vite** (ou React) |
+| Framework | **Vite** (se não detectar, use **Other**) |
 | Node.js | **20.x** |
+| Root directory | `/` (raiz do repositório) |
 | Build command | `npm run build` |
 | Output directory | `dist` |
+| Entry file | `server.js` |
 | Start command | `npm start` |
 
-Se a detecção automática falhar, use **Other** e preencha manualmente os campos acima.
+### Se aparecer "estrutura inválida"
 
-### 3. Variáveis de ambiente
+1. Confirme que o **Root directory** está vazio ou `/` (não uma subpasta).
+2. Selecione manualmente **Vite** ou **Other** no framework.
+3. Garanta que `package.json`, `index.html`, `vite.config.js` e `src/` estão na raiz do repo.
 
-Este site não exige variáveis de ambiente para funcionar.
+### Após conectar o GitHub
 
-### 4. Após o deploy
-
-A Hostinger executa o build e publica os arquivos de `dist/`. Cada push na branch `main` pode disparar um novo deploy automático.
+Cada push na branch `main` pode disparar redeploy automático.
 
 ## Preview local do build
 

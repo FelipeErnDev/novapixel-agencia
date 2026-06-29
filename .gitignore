@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos locais / infra fora do site
+eks-cluster.yaml
